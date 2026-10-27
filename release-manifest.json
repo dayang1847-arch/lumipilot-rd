@@ -1,0 +1,104 @@
+{
+  "app": "LumiPilot-R&D",
+  "date": "2026-10-27",
+  "raw_sources_included": false,
+  "auth_config_included": false,
+  "private_research_payload_included": false,
+  "files": [
+    {
+      "path": "web/index.html",
+      "bytes": 1440,
+      "sha256": "44d98c8a7082bbea78fa8280022e923d21950fad00d7abee5b781f64973dbf3e"
+    },
+    {
+      "path": "web/ui-assets/icon-source.json",
+      "bytes": 361,
+      "sha256": "8e7ddf08b094fae1406f7d04a6922a2552fa64462b9fba8e32822a514663e7fd"
+    },
+    {
+      "path": "web/ui-assets/icons/LICENSE.txt",
+      "bytes": 1073,
+      "sha256": "b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db"
+    },
+    {
+      "path": "web/ui-assets/icons/arrow-left.svg",
+      "bytes": 410,
+      "sha256": "cca229008bada786cf2f052b5374047478562cb3de0ca1fe7b2a3db61882a2c0"
+    },
+    {
+      "path": "web/ui-assets/icons/arrow-right.svg",
+      "bytes": 412,
+      "sha256": "fbd84a5780a8b2c6d4efc5f3376675e999d11eb43fadf7b9cbf2848b3120a7da"
+    },
+    {
+      "path": "web/ui-assets/icons/book.svg",
+      "bytes": 501,
+      "sha256": "4dabc6cd2e625790912e4e77d39488fdb9a13a7bd18f87e0b50c45f4f5d10dd5"
+    },
+    {
+      "path": "web/ui-assets/icons/check.svg",
+      "bytes": 360,
+      "sha256": "012d69548a769f4287e0af4c535b2cdf6e40457651de8078c4e588f0488952d6"
+    },
+    {
+      "path": "web/ui-assets/icons/chevron-down.svg",
+      "bytes": 364,
+      "sha256": "a3a801faaeeb084e8a96897a5e2f355870b861e9606a1b50a89011b2718cc322"
+    },
+    {
+      "path": "web/ui-assets/icons/chevron-right.svg",
+      "bytes": 365,
+      "sha256": "0142561fc2fd1b6a18b2cb0c08959b6037643aecf6adc6612aefe16ec4f39f0f"
+    },
+    {
+      "path": "web/ui-assets/icons/download.svg",
+      "bytes": 445,
+      "sha256": "cbd1714bda2ebd0fa70ab725a6845be0853ba908b2c05a7cadf2ba4fef41cbdf"
+    },
+    {
+      "path": "web/ui-assets/icons/external-link.svg",
+      "bytes": 465,
+      "sha256": "21623891fb11b028b31ad59e8f864592ea1fcb3900607e70366f9157dc107b7a"
+    },
+    {
+      "path": "web/ui-assets/icons/file-description.svg",
+      "bytes": 509,
+      "sha256": "755cf3cf9be7a851defe2d7fa52f9430bee608f68fb2a25122ad1eefce9171d0"
+    },
+    {
+      "path": "web/ui-assets/icons/flag.svg",
+      "bytes": 434,
+      "sha256": "eafc36e1306bc87d9ae65fd6a75c5aff61d0ceb5ff852dbf94a03fa2068a2f89"
+    },
+    {
+      "path": "web/ui-assets/icons/history.svg",
+      "bytes": 409,
+      "sha256": "a0ade047b62f42441fdf3c157b751452cf7ee7ce92b336329eff20d8c44de8f8"
+    },
+    {
+      "path": "web/ui-assets/icons/search.svg",
+      "bytes": 409,
+      "sha256": "57e054b6c1508be40d5eba1ea434b702f5ff55dca04e28e5e3f22472c2f6176d"
+    },
+    {
+      "path": "web/ui-assets/icons/x.svg",
+      "bytes": 378,
+      "sha256": "445e1b53563ad7e089f94dee923c2ef3444c63d45294a733687471a76a3c3b8d"
+    },
+    {
+      "path": "web/ui-v4.css",
+      "bytes": 15179,
+      "sha256": "a11f3fb7304c21d917af70306f5f2115d9d46a9006308b175c7f4cd4c25b6170"
+    },
+    {
+      "path": "web/ui-v4.js",
+      "bytes": 25338,
+      "sha256": "8942d14e80d01f097e1416eb58a4aaeaf9f4c26b388930f10e46395b08c9a66d"
+    },
+    {
+      "path": "web/页面使用说明_v4.md",
+      "bytes": 3678,
+      "sha256": "4ffcd23ccc5bbc57457de340eec6c36bbd264e4912afa805e909225731a5e73b"
+    }
+  ]
+}

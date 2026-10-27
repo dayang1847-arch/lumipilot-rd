@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      RD_PUBLIC_ORIGIN: https://${RD_DOMAIN:?Set RD_DOMAIN in .env}
+      RD_RUNTIME_DIR: /var/lib/lumipilot-rd
+      RD_SOURCES_DIR: /data/sources
+    volumes:
+      - ./runtime:/var/lib/lumipilot-rd
+      - ./source-data:/data/sources:ro
+    expose:
+      - "8988"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      RD_DOMAIN: ${RD_DOMAIN:?Set RD_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+volumes:
+  caddy_data:
+  caddy_config:

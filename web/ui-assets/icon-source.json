@@ -1,0 +1,20 @@
+{
+  "package": "@tabler/icons",
+  "version": "3.49.0",
+  "source": "https://registry.npmjs.org/@tabler/icons/-/icons-3.49.0.tgz",
+  "icons": [
+    "file-description",
+    "history",
+    "book",
+    "chevron-right",
+    "arrow-right",
+    "flag",
+    "chevron-down",
+    "check",
+    "x",
+    "download",
+    "search",
+    "arrow-left",
+    "external-link"
+  ]
+}

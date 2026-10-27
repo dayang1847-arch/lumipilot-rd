@@ -1,0 +1,14 @@
+.runtime/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+*.sqlite3*
+*.log
+auth.json
+资料快照/
+source-data/
+.DS_Store
+
+runtime/
