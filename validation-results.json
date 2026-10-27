@@ -1,10 +1,18 @@
 {
   "date": "2026-10-27",
-  "unit_tests_passed": 16,
+  "unit_tests_passed": 19,
   "requested_account_verified": true,
-  "github_upload_verified": false,
+  "github_upload_verified": true,
   "public_site_verified": false,
   "docker_linux_verified": false,
   "public_code_resources": 19,
-  "private_payload_excluded_from_repository": true
+  "private_payload_excluded_from_repository": true,
+  "github_commit": "f2546a55d938b22d9b886ac69c7d4da164d18377",
+  "github_resources_byte_matched": 37,
+  "ci_run": "https://github.com/dayang1847-arch/lumipilot-rd/actions/runs/40442540070",
+  "audience_content_browser_verified": [
+    "customer",
+    "sales",
+    "engineer"
+  ]
 }

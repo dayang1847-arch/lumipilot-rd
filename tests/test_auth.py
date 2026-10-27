@@ -8,12 +8,13 @@ class AuthBoundaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.tmp=tempfile.TemporaryDirectory();cls.root=Path(cls.tmp.name);web=cls.root/'web';web.mkdir();src=cls.root/'sources';src.mkdir()
-        (web/'index.html').write_text('<html><time class="date">date</time><p>PRIVATE-RESEARCH</p></html>')
+        (web/'index.html').write_text('<html><time class="date">date</time><p>PRIVATE-RESEARCH</p><script type="application/json" id="library-data">{}</script><script type="application/json" id="case-data">{}</script></html>')
         (web/'knowledge.json').write_text('{"private":"BOM-SECRET"}')
         (web/'app.js').write_text('const confidential = "INTERNAL";')
         (web/'nested').mkdir();(web/'.env').write_text('not-public')
         (cls.root/'outside.txt').write_text('OUTSIDE-SECRET');(web/'escape.txt').symlink_to(cls.root/'outside.txt')
         (src/'evidence.txt').write_text('PRIVATE-SOURCE')
+        private=cls.root/'private-web';private.mkdir();(private/'bootstrap.json').write_text(json.dumps({'library':{'private':'PRIVATE-BOOTSTRAP'},'cases':{'case':'PRIVATE-CASE'}}));(private/'analysis.json').write_text('{"private":"PRIVATE-ANALYSIS"}')
         write_auth(cls.root/'auth.json','admin','test-only-passphrase')
         cls.state=State(cls.root/'auth.json',web,cls.root/'sessions.sqlite3','http://127.0.0.1:1',src,local=True)
         cls.http=build_server(cls.state,port=0);cls.port=cls.http.server_address[1];cls.state.origin=f'http://127.0.0.1:{cls.port}'
@@ -81,6 +82,16 @@ class AuthBoundaryTests(unittest.TestCase):
         with self.assertRaises(ValueError):State(self.root/'auth.json',self.root/'web',self.root/'x.sqlite3','http://example.invalid')
     def test_large_login_body_rejected(self):
         self.assertEqual(self.req('/login','POST',{'password':'x'*5000})[0],413)
+    def test_private_case_payload_is_injected_only_after_login(self):
+        self.assertNotIn(b'PRIVATE-BOOTSTRAP',(self.root/'web/index.html').read_bytes())
+        self.assertNotIn(b'PRIVATE-BOOTSTRAP',self.req('/')[2])
+        body=self.req('/',cookie=self.login())[2]
+        self.assertIn(b'PRIVATE-BOOTSTRAP',body);self.assertIn(b'PRIVATE-CASE',body)
+    def test_private_analysis_fallback_still_requires_login(self):
+        self.assertEqual(self.req('/analysis.json')[0],303)
+        self.assertIn(b'PRIVATE-ANALYSIS',self.req('/analysis.json',cookie=self.login())[2])
+    def test_private_bootstrap_direct_url_requires_login(self):
+        self.assertEqual(self.req('/bootstrap.json')[0],303)
     def test_auth_file_contains_verifier_only(self):
         text=(self.root/'auth.json').read_text();self.assertNotIn('test-only-passphrase',text);self.assertEqual((self.root/'auth.json').stat().st_mode & 0o777,0o600)
 
